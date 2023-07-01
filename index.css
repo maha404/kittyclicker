@@ -1,0 +1,68 @@
+@property --gradient-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+
+body {
+    min-height: 100vh;
+    background: #1c1835;
+    display: grid;
+    place-content: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+h2 {
+    color: white;
+}
+
+
+
+.card {
+    height: fit-content;
+    aspect-ratio: 1/1.5;
+    border-radius: 0.5rem;
+    background: #1c1835;
+    position: relative;
+    display: grid;
+    place-content: center;
+    cursor: pointer;
+}
+
+.card::before, 
+.card::after {
+    content: "";
+    position: absolute;
+    inset: -.5rem;
+    z-index: -1;
+    background: conic-gradient(
+        #d24b8b, 
+        #6c58d9, 
+        #9f52b2, 
+        #d24b8b
+    );
+    border-radius: inherit;
+    animation: rotation 20s linear infinite;
+}
+
+@keyframes rotation {
+    0% { transform: rotate(0deg);}
+    100% { transform: rotate(360deg);}
+}
+
+.card::after{
+    filter: blur(3.5rem);
+}
+
+#cat_icon {
+   color: #d24b8b; 
+   animation: rotation 20s linear;
+   animation-duration: 30s;
+}
+
+#counter {
+    margin: 5vh 0 0 0;
+    font-size: 3rem;
+    color: white;
+}
